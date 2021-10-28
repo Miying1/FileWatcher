@@ -1,6 +1,6 @@
 # FileWatcher
 C# 基于FileSystemWatcher类对目录和文件夹的改变监控.
-解决了同一文件在复制或新建是会触发多次 new 和 changed 事件的问题
+解决了同一文件在复制或新建文件时会触发多次 new 和 changed 事件的问题
 # 示例
             //目录下的文件
             FileWatcher fileWatcher = new FileWatcher("C:\\test", "*.xml");
