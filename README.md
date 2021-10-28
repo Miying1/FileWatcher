@@ -2,6 +2,10 @@
 C# 基于FileSystemWatcher类对目录和文件夹的改变监控.
 解决了同一文件在复制或新建文件时会触发多次 new 和 changed 事件的问题
 # 示例
+    class Program
+    {
+        static void Main(string[] args)
+        {
             //目录下的文件
             FileWatcher fileWatcher = new FileWatcher("C:\\test", "*.xml");
             fileWatcher.Open();
@@ -13,11 +17,11 @@ C# 基于FileSystemWatcher类对目录和文件夹的改变监控.
             fileWatcher2.Open();
             var task2 = FileChangedQueue(fileWatcher2);
             task2.Wait();
+        }
 
-
-            private static async Task FileChangedQueue(FileWatcher fileWatcher)
-            {
-
+        private static async Task FileChangedQueue(FileWatcher fileWatcher)
+        {
+             
             while (true)
             {
                 if (fileWatcher.IsWatch)
@@ -47,4 +51,5 @@ C# 基于FileSystemWatcher类对目录和文件夹的改变监控.
                     await Task.Delay(100);
                 }
             }
-            }
+        }
+    }
