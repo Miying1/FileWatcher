@@ -15,9 +15,9 @@ C# 基于FileSystemWatcher类对目录和文件夹的改变监控
             task2.Wait();
 
 
-        private static async Task FileChangedQueue(FileWatcher fileWatcher)
-        {
-             
+            private static async Task FileChangedQueue(FileWatcher fileWatcher)
+            {
+
             while (true)
             {
                 if (fileWatcher.IsWatch)
@@ -47,4 +47,4 @@ C# 基于FileSystemWatcher类对目录和文件夹的改变监控
                     await Task.Delay(100);
                 }
             }
-        }
+            }
